@@ -32,6 +32,8 @@
   {"title":"Idle Dice","image":"../images/idle_dice.png","link":"Idle_dice","tags":["Idle"]},
   {"title":"Jelly Mario","image":"../images/jelly_mario.png","link":"jelly_mario","tags":["Beta"]},
   {"title":"Just a Platformer","image":"../images/just_a_platformer.png","link":"just_a_Platformer","tags":["Platformer"]},
+  {"title":"Kindergarten","image":"../images/kindergarten.png","link":"kindergarten","tags":["Beta"]},
+  {"title":"Kindergarten 2","image":"../images/kindergarten_2.png","link":"kindergarten_2","tags":["Beta"]},
   {"title":"Level Devil","image":"../images/level_devil.png","link":"level_devil","tags":["Platformer"]},
   {"title":"Magic Cat Academy","image":"../images/magic_cat_academy.png","link":"magic_cat_academy","tags":[]},
   {"title":"Minesweeper","image":"../images/minesweeper.png","link":"minesweeper","tags":["Strategy"]},

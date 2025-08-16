@@ -85,6 +85,14 @@
         <input type="text" id="urlJustAPlatformer" placeholder="https://wowdabug.github.io/s2/just_a_platformer/">
       </div>
       <div class="setting-group">
+        <label for="urlKindergarten">Kindergarten</label>
+        <input type="text" id="urlKindergarten" placeholder="https://wowdabug.github.io/s2/kindergarten/">
+      </div>
+      <div class="setting-group">
+        <label for="urlKindergarten2">Kindergarten 2</label>
+        <input type="text" id="urlKindergarten2" placeholder="https://wowdabug.github.io/s2/kindergarten_2/">
+      </div>
+      <div class="setting-group">
         <label for="urlOvo">OvO URL</label>
         <input type="text" id="urlOvo" placeholder="https://wowdabug.github.io/s2/ovo/">
       </div>
@@ -134,6 +142,8 @@
         localStorage.setItem('urlFnaf', document.getElementById('urlFnaf').value);
         localStorage.setItem('urlGranny', document.getElementById('urlGranny').value);
         localStorage.setItem('urlJustAPlatformer', document.getElementById('urlJustAPlatformer').value);
+        localStorage.setItem('urlKindergarten', document.getElementById('urlKindergarten').value);
+        localStorage.setItem('urlKindergarten2', document.getElementById('urlKindergarten2').value);
         localStorage.setItem('urlOvo', document.getElementById('urlOvo').value);
         localStorage.setItem('urlPeoplePlayground', document.getElementById('urlPeoplePlayground').value);
         localStorage.setItem('urlPizzaTower', document.getElementById('urlPizzaTower').value);
@@ -153,6 +163,8 @@
           document.getElementById('urlFnaf').value = '';
           document.getElementById('urlGranny').value = '';
           document.getElementById('urlJustAPlatformer').value = '';
+          document.getElementById('urlKindergarten').value = '';
+          document.getElementById('urlKindergarten2').value = '';
           document.getElementById('urlOvo').value = '';
           document.getElementById('urlPeoplePlayground').value = '';
           document.getElementById('urlPizzaTower').value = '';
@@ -188,6 +200,8 @@
         document.getElementById('urlFnaf').value = localStorage.getItem('urlFnaf') || '';
         document.getElementById('urlGranny').value = localStorage.getItem('urlGranny') || '';
         document.getElementById('urlJustAPlatformer').value = localStorage.getItem('urlJustAPlatformer') || '';
+        document.getElementById('urlKindergarten').value = localStorage.getItem('urlKindergarten') || '';
+        document.getElementById('urlKindergarten2').value = localStorage.getItem('urlKindergarten2') || '';
         document.getElementById('urlOvo').value = localStorage.getItem('urlOvo') || '';
         document.getElementById('urlPeoplePlayground').value = localStorage.getItem('urlPeoplePlayground') || '';
         document.getElementById('urlPizzaTower').value = localStorage.getItem('urlPizzaTower') || '';
