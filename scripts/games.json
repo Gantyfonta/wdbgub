@@ -52,6 +52,7 @@
   {"title":"Run 3","image":"../images/run_3.png","link":"run_3","tags":["Platformer"]},
   {"title":"Sand Game","image":"../images/sand_game.png","link":"sand_game","tags":["Sandbox"]},
   {"title":"Sandboxels","image":"../images/sandboxels.png","link":"sandboxels","tags":["Sandbox"]},
+  {"title":"Sandtris","image":"../images/sandtris.png","link":"sandtris","tags":["Beta"]},
   {"title":"Scratch Flight Sim","image":"../images/scratch_flight_sim.png","link":"scratch_flight_sim","tags":[]},
   {"title":"Slope","image":"../images/slope.png","link":"slope","tags":["Featured"]},
   {"title":"Slow Roads","image":"../images/slow_roads.png","link":"slow_roads","tags":["Featured"]},
