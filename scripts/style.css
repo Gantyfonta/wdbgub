@@ -9,7 +9,7 @@ body {
 }
 
 .navbar {
-  background-color: #111;
+  background-color: #333;
   padding: 10px 0;
 }
 
@@ -22,7 +22,7 @@ body {
 }
 
 .navbar a:hover {
-  background-color: #333;
+  background-color: #111;
   border-radius: 5px;
 }
 
