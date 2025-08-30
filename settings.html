@@ -105,6 +105,10 @@
         <input type="text" id="urlRun3" placeholder="https://wowdabug.github.io/run_3/tn6pS9dCf37xAhkJv/">
       </div>
       <div class="setting-group">
+        <label for="urlTowerWizard">Tower Wizard URL</label>
+        <input type="text" id="urlTowerWizard" placeholder="https://wowdabug.github.io/s2/tower_wizard/">
+      </div>
+      <div class="setting-group">
         <label for="urlTownscaper">Townscaper URL</label>
         <input type="text" id="urlTownscaper" placeholder="https://wowdabug.github.io/s2/townscaper/">
       </div>
@@ -139,6 +143,7 @@
         localStorage.setItem('urlPizzaTower', document.getElementById('urlPizzaTower').value);
         localStorage.setItem('urlPolytrack', document.getElementById('urlPolytrack').value);
         localStorage.setItem('urlRun3', document.getElementById('urlRun3').value);
+        localStorage.setItem('urlTowerWizard', document.getElementById('urlTowerWizard').value);
         localStorage.setItem('urlTownscaper', document.getElementById('urlTownscaper').value);
         localStorage.setItem('urlUndertale', document.getElementById('urlUndertale').value);
       }
@@ -158,6 +163,7 @@
           document.getElementById('urlPizzaTower').value = '';
           document.getElementById('urlPolytrack').value = '';
           document.getElementById('urlRun3').value = '';
+          document.getElementById('urlTowerWizard').value = '';
           document.getElementById('urlTownscaper').value = '';
           document.getElementById('urlUndertale').value = '';
         }
@@ -193,6 +199,7 @@
         document.getElementById('urlPizzaTower').value = localStorage.getItem('urlPizzaTower') || '';
         document.getElementById('urlPolytrack').value = localStorage.getItem('urlPolytrack') || '';
         document.getElementById('urlRun3').value = localStorage.getItem('urlRun3') || '';
+        document.getElementById('urlTowerWizard').value = localStorage.getItem('urlTowerWizard') || '';
         document.getElementById('urlTownscaper').value = localStorage.getItem('urlTownscaper') || '';
         document.getElementById('urlUndertale').value = localStorage.getItem('urlUndertale') || '';
         if (savedTitle) titleInput.value = savedTitle;
