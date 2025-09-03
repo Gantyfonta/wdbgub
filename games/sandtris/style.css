@@ -56,7 +56,7 @@ html, body {
 
 canvas {
   display: block;
-  height: calc(100vh - 10px) !important;
+  height: calc(100vh - 30px) !important;
   max-height: 640px !important;
 }
 
