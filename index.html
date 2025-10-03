@@ -14,7 +14,7 @@
       <a href="emulator">Emulator</a>
       <a href="flash">Flash</a>
     </div>
-    <h1>WDB Games · <span id="viewCount">0 Views</span>
+    <h1>WDB Games · <span id="viewCount">0 Views</span><br><span id="message">...</span>
     </h1>
     <div class="links-container">
       <div class="link-box">
@@ -58,6 +58,7 @@
       countRef.on("value", snapshot => {
         const views = snapshot.val();
         document.getElementById("viewCount").innerText = views + " Views";
+        document.getElementById("message").innerText = message;
       });
     </script>
     <script>
