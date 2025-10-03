@@ -52,14 +52,15 @@
       };
       firebase.initializeApp(firebaseConfig);
       const db = firebase.database();
-      const pageKey = "views/home";
-      const countRef = db.ref(pageKey);
+      let pageKey = "views/home";
+      let countRef = db.ref(pageKey);
       countRef.transaction(current => (current || 0) + 1);
       countRef.on("value", snapshot => {
         const views = snapshot.val();
         document.getElementById("viewCount").innerText = views + " Views";
-      const pageKey = "message/home";
-      const countRef = db.ref(pageKey);
+      }
+      let pageKey = "message/home";
+      let countRef = db.ref(pageKey);
       countRef.on("value", snapshot => {
         const message = snapshot.val();
         document.getElementById("message").innerText = message;
