@@ -1,6 +1,5 @@
 function loadCustomCSSWithFallback() {
     const customCssUrl = localStorage.getItem('CSS');
-    const fallbackCssUrl = 'https://wowdabug.github.io/wdbg/scripts/styl.css';
 
     if (customCssUrl && customCssUrl.trim().length > 0) {
         const link = document.createElement('link');
@@ -14,22 +13,11 @@ function loadCustomCSSWithFallback() {
 
         link.onerror = () => {
             console.warn(`Failed to load custom CSS from: ${customCssUrl}`);
-            const fallbackLink = document.createElement('link');
-            fallbackLink.rel = 'stylesheet';
-            fallbackLink.href = fallbackCssUrl;
-            fallbackLink.id = 'fallback-css';
-            document.head.appendChild(fallbackLink);
-            console.log(`Fallback CSS loaded from: ${fallbackCssUrl}`);
         };
 
         document.head.appendChild(link);
     } else {
-        const fallbackLink = document.createElement('link');
-        fallbackLink.rel = 'stylesheet';
-        fallbackLink.href = fallbackCssUrl;
-        fallbackLink.id = 'fallback-css';
-        document.head.appendChild(fallbackLink);
-        console.log(`No custom CSS URL found. Fallback CSS loaded from: ${fallbackCssUrl}`);
+        console.log(`No custom CSS URL found`);
     }
 }
 
