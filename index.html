@@ -41,30 +41,31 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
     <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyBKmpmd450Wly7mBl5uMB9K7TKeIwzkJLk",
-        authDomain: "chat-7ba8c.firebaseapp.com",
-        databaseURL: "https://chat-7ba8c-default-rtdb.firebaseio.com",
-        projectId: "chat-7ba8c",
-        storageBucket: "chat-7ba8c.firebasestorage.app",
-        messagingSenderId: "605557322783",
-        appId: "1:605557322783:web:945ab35987b6f29250d12a"
-      };
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.database();
-      let pageKey = "views/home";
-      let countRef = db.ref(pageKey);
-      countRef.transaction(current => (current || 0) + 1);
-      countRef.on("value", snapshot => {
-        const views = snapshot.val();
-        document.getElementById("viewCount").innerText = views + " Views";
-      }
-      let pageKey = "message/home";
-      let countRef = db.ref(pageKey);
-      countRef.on("value", snapshot => {
-        const message = snapshot.val();
-        document.getElementById("message").innerText = message;
-      });
+  const firebaseConfig = {
+    apiKey: "AIzaSyBKmpmd450Wly7mBl5uMB9K7TKeIwzkJLk",
+    authDomain: "chat-7ba8c.firebaseapp.com",
+    databaseURL: "https://chat-7ba8c-default-rtdb.firebaseio.com",
+    projectId: "chat-7ba8c",
+    storageBucket: "chat-7ba8c.firebasestorage.app",
+    messagingSenderId: "605557322783",
+    appId: "1:605557322783:web:945ab35987b6f29250d12a"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const viewsRef = db.ref("views/home");
+  viewsRef.transaction(current => (current || 0) + 1);
+  viewsRef.on("value", snapshot => {
+    const views = snapshot.val();
+    document.getElementById("viewCount").innerText = views + " Views";
+  });
+
+  const messageRef = db.ref("message/home");
+  messageRef.on("value", snapshot => {
+    const message = snapshot.val();
+    document.getElementById("message").innerText = message;
+  });
     </script>
     <script>
       function toggleCategory(header) {
