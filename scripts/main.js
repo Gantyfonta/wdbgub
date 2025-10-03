@@ -1,3 +1,39 @@
+function loadCustomCSSWithFallback() {
+    const customCssUrl = localStorage.getItem('CSS');
+    const fallbackCssUrl = 'https://wowdabug.github.io/wdbg/scripts/style.css';
+
+    if (customCssUrl && customCssUrl.trim().length > 0) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = customCssUrl;
+        link.id = 'dynamic-custom-css';
+
+        link.onload = () => {
+            console.log(`Custom CSS loaded from: ${customCssUrl}`);
+        };
+
+        link.onerror = () => {
+            console.warn(`Failed to load custom CSS from: ${customCssUrl}`);
+            const fallbackLink = document.createElement('link');
+            fallbackLink.rel = 'stylesheet';
+            fallbackLink.href = fallbackCssUrl;
+            fallbackLink.id = 'fallback-css';
+            document.head.appendChild(fallbackLink);
+            console.log(`Fallback CSS loaded from: ${fallbackCssUrl}`);
+        };
+
+        document.head.appendChild(link);
+    } else {
+        const fallbackLink = document.createElement('link');
+        fallbackLink.rel = 'stylesheet';
+        fallbackLink.href = fallbackCssUrl;
+        fallbackLink.id = 'fallback-css';
+        document.head.appendChild(fallbackLink);
+        console.log(`No custom CSS URL found. Fallback CSS loaded from: ${fallbackCssUrl}`);
+    }
+}
+
+
 function applyCustomSettings() {
     const defaultTitle = "WDBG";
     const defaultFavicon = "https://wowdabug.github.io/wdbg/images/favicon.png";
@@ -51,4 +87,7 @@ function loadCustomScriptFromURL() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadCustomScriptFromURL);
+document.addEventListener('DOMContentLoaded', () => {
+    loadCustomScriptFromURL();
+    loadCustomCSSWithFallback();
+});
