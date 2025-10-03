@@ -58,6 +58,10 @@
       countRef.on("value", snapshot => {
         const views = snapshot.val();
         document.getElementById("viewCount").innerText = views + " Views";
+      const pageKey = "message/home";
+      const countRef = db.ref(pageKey);
+      countRef.on("value", snapshot => {
+        const message = snapshot.val();
         document.getElementById("message").innerText = message;
       });
     </script>
