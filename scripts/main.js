@@ -1,6 +1,6 @@
 function loadCustomCSSWithFallback() {
     const customCssUrl = localStorage.getItem('CSS');
-    const fallbackCssUrl = 'https://wowdabug.github.io/wdbg/scripts/style.css';
+    const fallbackCssUrl = 'https://wowdabug.github.io/wdbg/scripts/styl.css';
 
     if (customCssUrl && customCssUrl.trim().length > 0) {
         const link = document.createElement('link');
