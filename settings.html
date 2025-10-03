@@ -53,6 +53,28 @@
         </div>
       </div>
       <div class="setting-group">
+        <label>Custom JS URL</label>
+        <input type="text" id="customJSInput" placeholder="">
+      </div>
+      <div class="setting-group">
+        <label>Custom JS URL Presets</label>
+        <div class="preset-buttons">
+          <button onclick="applyJSPreset('')">Default</button>
+          <button onclick="applyJSPreset('//')">Blank</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <label>Custom CSS URL</label>
+        <input type="text" id="customCSSInput" placeholder="">
+      </div>
+      <div class="setting-group">
+        <label>Custom CSS URL Presets</label>
+        <div class="preset-buttons">
+          <button onclick="applyCSSPreset('')">Default</button>
+          <button onclick="applyCSSPreset('//')">Blank</button>
+        </div>
+      </div>
+      <div class="setting-group">
         <label for="urlAngryBirds">Angry Birds URL</label>
         <input type="text" id="urlAngryBirds" placeholder="https://wowdabug.github.io/s2/angry_birds/">
       </div>
@@ -126,6 +148,8 @@
         localStorage.setItem('customFavicon', document.getElementById('faviconInput').value);
         localStorage.setItem('panicKey', document.getElementById('panicKeyInput').value);
         localStorage.setItem('panicUrl', document.getElementById('panicUrlInput').value);
+        localStorage.setItem('JS', document.getElementById('customJSInput').value);
+        localStorage.setItem('CSS', document.getElementById('customCSSInput').value);
         localStorage.setItem('urlAngryBirds', document.getElementById('urlAngryBirds').value);
         localStorage.setItem('urlBrotato', document.getElementById('urlBrotato').value);
         localStorage.setItem('urlChampionIsland', document.getElementById('urlChampionIsland').value);
@@ -171,15 +195,28 @@
       function applyPanicPreset(key, url) {
         document.getElementById('panicUrlInput').value = url;
       }
+
+      function applyJSPreset(url) {
+        document.getElementById('customJSInput').value = url;
+      }
+
+      function applyCSSPreset(url) {
+        document.getElementById('customCSSInput').value = url;
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         const titleInput = document.getElementById('titleInput');
         const faviconInput = document.getElementById('faviconInput');
         const panicKeyInput = document.getElementById('panicKeyInput');
         const panicUrlInput = document.getElementById('panicUrlInput');
+        const customJSInput = document.getElementById('customJSInput');
+        const customCSSInput = document.getElementById('customCSSInput');
         const savedTitle = localStorage.getItem('customTitle');
         const savedFavicon = localStorage.getItem('customFavicon');
         const savedPanicKey = localStorage.getItem('panicKey');
         const savedPanicUrl = localStorage.getItem('panicUrl');
+        const savedJS = localStorage.getItem('JS');
+        const savedCSS = localStorage.getItem('CSS');
         document.getElementById('urlAngryBirds').value = localStorage.getItem('urlAngryBirds') || '';
         document.getElementById('urlBrotato').value = localStorage.getItem('urlBrotato') || '';
         document.getElementById('urlChampionIsland').value = localStorage.getItem('urlChampionIsland') || '';
@@ -199,6 +236,8 @@
         if (savedFavicon) faviconInput.value = savedFavicon;
         if (savedPanicKey) panicKeyInput.value = savedPanicKey;
         if (savedPanicUrl) panicUrlInput.value = savedPanicUrl;
+        if (savedJS) customJSInput.value = savedJS;
+        if (savedCSS) customCSSInput.value = savedCSS;
         panicKeyInput.readOnly = true;
         panicKeyInput.addEventListener('keydown', e => {
           e.preventDefault();

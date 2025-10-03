@@ -39,3 +39,23 @@
   }
 });
 })();
+
+function loadCustomScriptFromURL() {
+    const urlKey = 'JS';
+    const scriptURL = localStorage.getItem(urlKey);
+    if (scriptURL && scriptURL.trim().length > 0) {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = scriptURL;
+        scriptTag.id = 'dynamic-custom-script';
+        document.body.appendChild(scriptTag);
+        scriptTag.onerror = () => {
+            console.error(`Failed to load custom script from URL: ${scriptURL}`);
+        };
+        scriptTag.onload = () => {
+            console.log(`Custom script from URL loaded successfully!`);
+        };
+    } else {
+        console.log("No custom script URL found in Local Storage.");
+    }
+}
+document.addEventListener('DOMContentLoaded', loadCustomScriptFromURL);
