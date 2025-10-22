@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="scripts/style.css">
 <script>
     async function loadChangelog() {
-        const response = await fetch('scripts/changelog.json');
+        const response = await fetch('scripts/json/changelog.json');
         const data = await response.json();
         const container = document.getElementById('changelog');
 

@@ -20,7 +20,7 @@
       let allGames = [];
       let selectedTags = new Set();
       async function loadGames() {
-        const response = await fetch("../scripts/games.json");
+        const response = await fetch("../scripts/json/games.json");
         allGames = await response.json();
         let allTags = [...new Set(allGames.flatMap(game => game.tags))];
         allTags.sort((a, b) => {
