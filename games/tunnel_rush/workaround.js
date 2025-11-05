@@ -1,6 +1,3 @@
-let sitesNoDouble = [
-    "soundcloud.com"
-]
 
 let sitesNoAppend = [
     "osu.ppy.sh"
