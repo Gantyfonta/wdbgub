@@ -54,24 +54,13 @@
       </div>
       <div class="setting-group">
         <label>Custom JS URL</label>
-        <input type="text" id="customJSInput" placeholder="https://wowdabug.github.io/wdbg/scripts/main.js">
+        <input type="text" id="customJSInput" placeholder="https://wowdabug.github.io/wdbg/scripts/js/default.js">
       </div>
       <div class="setting-group">
         <label>Custom JS URL Presets</label>
         <div class="preset-buttons">
           <button onclick="applyJSPreset('')">Default</button>
-          <button onclick="applyJSPreset('//')">Blank</button>
-        </div>
-      </div>
-      <div class="setting-group">
-        <label>Custom CSS URL</label>
-        <input type="text" id="customCSSInput" placeholder="https://wowdabug.github.io/wdbg/scripts/style.css">
-      </div>
-      <div class="setting-group">
-        <label>Custom CSS URL Presets</label>
-        <div class="preset-buttons">
-          <button onclick="applyCSSPreset('')">Default</button>
-          <button onclick="applyCSSPreset('//')">Blank</button>
+          <button onclick="applyJSPreset('https://wowdabug.github.io/wdbg/scripts/js/blank.js')">Blank</button>
         </div>
       </div>
       <div class="setting-group">
@@ -200,23 +189,17 @@
         document.getElementById('customJSInput').value = url;
       }
 
-      function applyCSSPreset(url) {
-        document.getElementById('customCSSInput').value = url;
-      }
-
       document.addEventListener('DOMContentLoaded', () => {
         const titleInput = document.getElementById('titleInput');
         const faviconInput = document.getElementById('faviconInput');
         const panicKeyInput = document.getElementById('panicKeyInput');
         const panicUrlInput = document.getElementById('panicUrlInput');
         const customJSInput = document.getElementById('customJSInput');
-        const customCSSInput = document.getElementById('customCSSInput');
         const savedTitle = localStorage.getItem('customTitle');
         const savedFavicon = localStorage.getItem('customFavicon');
         const savedPanicKey = localStorage.getItem('panicKey');
         const savedPanicUrl = localStorage.getItem('panicUrl');
         const savedJS = localStorage.getItem('JS');
-        const savedCSS = localStorage.getItem('CSS');
         document.getElementById('urlAngryBirds').value = localStorage.getItem('urlAngryBirds') || '';
         document.getElementById('urlBrotato').value = localStorage.getItem('urlBrotato') || '';
         document.getElementById('urlChampionIsland').value = localStorage.getItem('urlChampionIsland') || '';
@@ -237,7 +220,6 @@
         if (savedPanicKey) panicKeyInput.value = savedPanicKey;
         if (savedPanicUrl) panicUrlInput.value = savedPanicUrl;
         if (savedJS) customJSInput.value = savedJS;
-        if (savedCSS) customCSSInput.value = savedCSS;
         panicKeyInput.readOnly = true;
         panicKeyInput.addEventListener('keydown', e => {
           e.preventDefault();
