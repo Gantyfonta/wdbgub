@@ -17,6 +17,15 @@
       border: none;
     }
   </style>
+  <script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(() => {
+        if (!window.crossOriginIsolated) {
+            location.reload();
+        }
+    });
+}
+</script>
 </head>
 <body>
   <iframe src="https://wowdabug.github.io/s1/tower_wizard/" title="Angry Birds"></iframe>
