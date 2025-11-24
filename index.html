@@ -1,81 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>WDBG</title>
-    <script src="scripts/main.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scripts/style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="index.html">Home</a>
-      <a href="games">Games</a>
-      <a href="emulator">Emulator</a>
-      <a href="flash">Flash</a>
-    </div>
-    <h1>WDB Games · <span id="viewCount">0 Views</span><br><span id="message">...</span>
-    </h1>
-    <div class="links-container">
-      <div class="link-box">
-        <a href="settings.html">Settings</a>
-        <p>Customize WDB Games here.</p>
-      </div>
-      <div class="link-box">
-        <a href="changelog.html">Changelog</a>
-        <p>See recent additions to WDB Games here.</p>
-      </div>
-      <div class="link-box">
-        <a href="downloads.html">Downloads</a>
-        <p>Use this to download misc. things.</p>
-      </div>
-      <div class="link-box">
-        <a href="https://tally.so/r/3NdxgG" target="_blank">Tally Forms</a>
-        <p>Suggest a game or report a bug here.</p>
-      </div>
-      <div class="link-box">
-        <a href="https://github.com/wowdabug/wdbg" target="_blank">Github Repo</a>
-        <p>The source code for this website.</p>
-      </div>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-    <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBKmpmd450Wly7mBl5uMB9K7TKeIwzkJLk",
-    authDomain: "chat-7ba8c.firebaseapp.com",
-    databaseURL: "https://chat-7ba8c-default-rtdb.firebaseio.com",
-    projectId: "chat-7ba8c",
-    storageBucket: "chat-7ba8c.firebasestorage.app",
-    messagingSenderId: "605557322783",
-    appId: "1:605557322783:web:945ab35987b6f29250d12a"
-  };
+<head>
+<meta charset="UTF-8">
+<title>Cosmic Frog Observatory</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #0a0f1a, #000);
+    color: #9ad1ff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+  header {
+    padding: 40px 20px;
+  }
 
-  const viewsRef = db.ref("views/home");
-  viewsRef.transaction(current => (current || 0) + 1);
-  viewsRef.on("value", snapshot => {
-    const views = snapshot.val();
-    document.getElementById("viewCount").innerText = views + " Views";
-  });
+  h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #78c7ff;
+    text-shadow: 0 0 10px #3da5ff;
+  }
 
-  const messageRef = db.ref("message/home");
-  messageRef.on("value", snapshot => {
-    const message = snapshot.val();
-    document.getElementById("message").innerText = message;
-  });
-    </script>
-    <script>
-      function toggleCategory(header) {
-        let gamesContainer = header.nextElementSibling;
-        if (gamesContainer.style.display === "grid") {
-          gamesContainer.style.display = "none";
-        } else {
-          gamesContainer.style.display = "grid";
-        }
-      }
-    </script>
-  </body>
+  .frog {
+    font-size: 60px;
+    margin-top: 20px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  .box {
+    width: 80%;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  button {
+    padding: 10px 20px;
+    background: #3da5ff;
+    border: none;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #6bc0ff;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cosmic Frog Observatory</h1>
+  <div class="frog">🐸✨</div>
+</header>
+
+<div class="box">
+  <h2>Random Frog Fact</h2>
+  <p id="fact">Press the button to discover cosmic amphibian secrets.</p>
+  <button onclick="newFact()">Reveal Fact</button>
+</div>
+
+<div class="box">
+  <h2>Frog Frequency Detector</h2>
+  <p id="freq">No signal detected.</p>
+  <button onclick="scan()">Scan Space</button>
+</div>
+
+<script>
+  const facts = [
+    "Some frogs can survive being frozen solid.",
+    "The cosmic frog's croak can allegedly bend small galaxies.",
+    "Frogs absorb water through their skin, not their mouths.",
+    "Scientists believe frogs existed before most modern constellations.",
+    "A single cosmic frog leap can theoretically break light-speed (unproven)."
+  ];
+
+  function newFact() {
+    document.getElementById("fact").innerText =
+      facts[Math.floor(Math.random() * facts.length)];
+  }
+
+  function scan() {
+    const f = Math.floor(Math.random() * 9000) + 1000;
+    document.getElementById("freq").innerText =
+      "Detected amphibian wavelength: " + f + " Hz";
+  }
+</script>
+
+</body>
 </html>
